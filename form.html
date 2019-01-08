@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="form-style.css">
+	<title>Form</title>
+</head>
+<body>
+	<section class="section-subscribe">
+		<div class="section-main-bg">
+			<h2 class="visually-hidden">Подписка на рассылку</h2>
+			<b class="slogan">Подпишитесь на нашу рассылку и получайте новости о лучших путевках первыми!</b>
+			<button class="close-btn" type="button" aria-label="close"></button>
+			<form action="#" method="post">
+				<div class="col-main">
+					<p class="text-input-field">
+						<label class="heading-like" for="news-name">Ваше имя</label>
+						<input type="text" name="newsletter-name" placeholder="Имя" required id="news-name">
+					</p>
+					<p class="text-input-field">
+						<label class="heading-like" for="news-email">Ваша почта</label>
+						<input type="text" name="newsletter-email" placeholder="user@email.com" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" id="news-email" class="email-field">
+						<span class="error-msg">Введите адрес электронной почты в формате user@email.com</span>
+					</p>
+					<p class="text-input-field">
+						<label class="heading-like" for="news-dep-city">Город вылета</label>
+						<input type="text" name="newsletter-departure-city" placeholder="Киев" id="news-dep-city" list="dep-city-list">
+						<datalist id="dep-city-list">
+							<option value="Киев"></option>
+							<option value="Одесса"></option>
+							<option value="Днепр"></option>
+							<option value="Харьков"></option>
+							<option value="Львов"></option>
+							<option value="Ивано-Франковск"></option>
+							<option value="Полтава"></option>
+							<option value="Николаев"></option>
+							<option value="Херсон"></option>
+						</datalist>
+					</p>
+					<fieldset class="travellers-quantity">
+						<legend class="heading-like">Количество путешествующих</legend>
+						<div class="quantity-columns">
+							<p>
+								<label for="news-adults">Взрослые <output id="adults-num">2</output></label>
+								<input type="range" name="newsletter-quantity-adults" min="0" max="8" value="2" step="1" id="news-adults">
+							</p>
+							<p>
+								<label for="news-kids">Дети <output id="kids-num">0</output></label>
+								<input type="range" name="newsletter-quantity-kids" min="0" max="8" value="0" step="1" id="news-kids">
+							</p>
+						</div>
+					</fieldset>
+					<fieldset class="mailing-frequency">
+						<legend class="heading-like">Как часто Вы хотите получать рассылку</legend>
+						<p>
+							<label class="radio-label">
+								<input type="radio" name="news-mail-frequency" value="daily" checked class="visually-hidden">
+								<span class="custom-radio"></span>
+								Каждый день
+							</label>
+						</p>
+						<p>
+							<label class="radio-label">
+								<input type="radio" name="news-mail-frequency" value="weekly" class="visually-hidden">
+								<span class="custom-radio"></span>
+								Раз в неделю
+							</label>
+						</p>
+						<p>
+							<label class="radio-label">
+								<input type="radio" name="news-mail-frequency" value="monthly" class="visually-hidden">
+								<span class="custom-radio"></span>
+								Раз в месяц
+							</label>
+						</p>
+					</fieldset>
+				</div>
+				<div class="col-directions">
+					<fieldset class="directions">
+						<legend class="heading-like">Направления</legend>
+						<p>
+							<label class="check-label">
+								<input type="checkbox" name="news-direction-southEurope" checked class="visually-hidden">
+								<span class="custom-checkbox"></span>
+								Южная Европа
+							</label>
+						</p>
+						<p>
+							<label class="check-label">
+								<input type="checkbox" name="news-direction-northEurope" checked class="visually-hidden">
+								<span class="custom-checkbox"></span>
+								Северная Европа
+							</label>
+						</p>
+						<p>
+							<label class="check-label">
+								<input type="checkbox" name="news-direction-centralEurope" checked class="visually-hidden">
+								<span class="custom-checkbox"></span>
+								Центральная Европа
+							</label>
+						</p>
+						<p>
+							<label class="check-label">
+								<input type="checkbox" name="news-direction-northAmerica" checked class="visually-hidden">
+								<span class="custom-checkbox"></span>
+								Северная Америка
+							</label>
+						</p>
+						<p>
+							<label class="check-label">
+								<input type="checkbox" name="news-direction-centralAmerica" checked class="visually-hidden">
+								<span class="custom-checkbox"></span>
+								Центральная Америка
+							</label>
+						</p>
+						<p>
+							<label class="check-label">
+								<input type="checkbox" name="news-direction-southAmerica" checked class="visually-hidden">
+								<span class="custom-checkbox"></span>
+								Южная Америка
+							</label>
+						</p>
+						<p>
+							<label class="check-label">
+								<input type="checkbox" name="news-direction-southEastAsia" checked class="visually-hidden">
+								<span class="custom-checkbox"></span>
+								Юго-Восточная Азия
+							</label>
+						</p>
+					</fieldset>
+				</div>
+				<div class="row-submit">
+					<button type="submit" class="submit-btn">Подписаться!</button>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+    		var adultsRange = document.getElementById("news-adults");
+    		var adultsOutput = document.getElementById("adults-num");
+    		adultsRange.addEventListener('input', function() {
+    			adultsOutput.innerHTML = adultsRange.value;
+    		})
+
+    		var kidsRange = document.getElementById("news-kids");
+    		var kidsOutput = document.getElementById("kids-num");
+    		kidsRange.addEventListener('input', function () {
+    			kidsOutput.innerHTML = kidsRange.value;
+    		})
+		})
+	</script>
+
+</body>
+</html>
